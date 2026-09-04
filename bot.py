@@ -62,18 +62,6 @@ async def start(message: types.Message):
         inline_keyboard=[
             [
                 InlineKeyboardButton(
-                    text="⏱ Сколько делается бот?",
-                    callback_data="time"
-                )
-            ],
-            [
-                InlineKeyboardButton(
-                    text="💰 Сколько стоит бот?",
-                    callback_data="price"
-                )
-            ],
-            [
-                InlineKeyboardButton(
                     text="📞 Написать менеджеру",
                     callback_data="manager"
                 )
@@ -82,8 +70,12 @@ async def start(message: types.Message):
     )
 
     await message.answer(
-        "Здравствуйте! 👋\n\n"
-        "Если вы хотите заказать Telegram-бота для своего бизнеса и не только, "
+        "Вас приветствует мини-студия Ботоделы! 👋\n\n"
+        "Каждого бота мы делаем качественно! 🔥",
+        "Поэтому создание каждого бота занимает около полутора недель",
+        "Все зависит от количества работы 😉",
+        "Цена колеблится от 500₽ до 2000₽",
+        "Если вы хотите задать вопрос или заказать Telegram-бота для своего бизнеса и не только, "
         "вы можете выбрать один из вариантов ниже:",
         reply_markup=keyboard
     )
@@ -96,20 +88,6 @@ async def start(message: types.Message):
 @dp.callback_query()
 async def callbacks(callback: types.CallbackQuery):
 
-    if callback.data == "time":
-
-        await callback.message.answer(
-            "⏱ Точное время назвать нельзя — "
-            "всё зависит от сложности и функционала бота."
-        )
-
-    elif callback.data == "price":
-
-        await callback.message.answer(
-            "💰 Стоимость разработки бота — "
-            "от 500 ₽ за самого простого бота "
-            "до 2000 ₽ и выше, в зависимости от сложности."
-        )
 
     elif callback.data == "manager":
 
