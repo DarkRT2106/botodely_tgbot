@@ -1,5 +1,8 @@
 import asyncio
 import os
+import threading
+
+from flask import Flask
 
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart
@@ -14,9 +17,30 @@ TOKEN = os.getenv("BOT_TOKEN")
 
 MANAGER_USERNAME = "@RT_ATC1026"
 
+PORT = int(os.getenv("PORT", 10000))
+
 
 if not TOKEN:
     raise ValueError("Переменная BOT_TOKEN не установлена!")
+
+
+# ==============================
+# HTTP-СЕРВЕР ДЛЯ RENDER
+# ==============================
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def home():
+    return "Bot is running!"
+
+
+def run_web_server():
+    app.run(
+        host="0.0.0.0",
+        port=PORT
+    )
 
 
 # ==============================
@@ -110,4 +134,14 @@ async def main():
 
 
 if __name__ == "__main__":
+
+    # Запускаем HTTP-сервер в отдельном потоке
+    web_thread = threading.Thread(
+        target=run_web_server,
+        daemon=True
+    )
+
+    web_thread.start()
+
+    # Запускаем Telegram-бота
     asyncio.run(main())
