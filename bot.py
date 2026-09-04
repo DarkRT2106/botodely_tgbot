@@ -10,7 +10,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 # НАСТРОЙКИ
 # ==============================
 
-TOKEN = os.getenv("8998464096:AAEOiTAZurW53o1RCAx5hO_gG8AjxWeUslQ")
+TOKEN = os.getenv("BOT_TOKEN")
 
 MANAGER_USERNAME = "@RT_ATC1026"
 
