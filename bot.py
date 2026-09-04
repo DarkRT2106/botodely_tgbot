@@ -21,7 +21,7 @@ PORT = int(os.getenv("PORT", 10000))
 
 
 if not TOKEN:
-    raise ValueError("Переменная BOT_TOKEN не установлена")
+    raise ValueError("Переменная BOT_TOKEN не установлена!")
 
 
 # ==============================
