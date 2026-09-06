@@ -11,7 +11,7 @@ MANAGER_USERNAME = "@botodel_manager"
 
 
 if not TOKEN:
-    raise ValueError("Переменная BOT_TOKEN не установлена!")
+    raise ValueError("Переменная BOT_TOKEN не установлена")
 
 
 bot = Bot(token=TOKEN)
