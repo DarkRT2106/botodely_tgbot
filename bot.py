@@ -7,7 +7,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 TOKEN = os.getenv("BOT_TOKEN")
-MANAGER_USERNAME = "@RT_ATC1026"
+MANAGER_USERNAME = "@botodel_manager"
 
 
 if not TOKEN:
