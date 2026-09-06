@@ -26,7 +26,7 @@ async def start(message: types.Message):
             [
                 InlineKeyboardButton(
                     text="📞 Написать менеджеру",
-                    url="https://t.me/RT_ATC1026"
+                    url="https://t.me/botodel_manager"
                 )
             ]
         ]
