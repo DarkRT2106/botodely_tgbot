@@ -6,12 +6,8 @@ from aiogram.filters import CommandStart
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
-# ==============================
-# НАСТРОЙКИ
-# ==============================
-
 TOKEN = os.getenv("BOT_TOKEN")
-MANAGER_USERNAME = "@botodel_manager"
+MANAGER_USERNAME = "@RT_ATC1026"
 
 
 if not TOKEN:
@@ -22,10 +18,6 @@ bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
 
-# ==============================
-# КОМАНДА /START
-# ==============================
-
 @dp.message(CommandStart())
 async def start(message: types.Message):
 
@@ -34,7 +26,7 @@ async def start(message: types.Message):
             [
                 InlineKeyboardButton(
                     text="📞 Написать менеджеру",
-                    url=f"https://t.me/{MANAGER_USERNAME.replace('@', '')}"
+                    url="https://t.me/RT_ATC1026"
                 )
             ]
         ]
@@ -56,10 +48,6 @@ async def start(message: types.Message):
     )
 
 
-# ==============================
-# ЗАПУСК БОТА
-# ==============================
-
 async def main():
     print("Бот запущен!")
     await dp.start_polling(bot)
@@ -67,3 +55,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
